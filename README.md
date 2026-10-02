@@ -1,146 +1,98 @@
-name: Update GitHub Profile
+<!--
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║                 ANDREW SEM TETTEH                            ║
+║                 DIGITAL STUDIO / 2026                        ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+-->
 
-on:
-  schedule:
-    - cron: "0 */6 * * *"
+<div align="center">
 
-  workflow_dispatch:
+<img
+  src="https://capsule-render.vercel.app/api?type=waving&height=280&color=0:050505,45:111111,100:242424&text=ANDREW%20SEM%20TETTEH&fontSize=42&fontColor=ffffff&fontAlignY=40&desc=CODE%20%C2%B7%20DESIGN%20%C2%B7%20AI%20%C2%B7%20EXPERIMENTS&descSize=16&descAlignY=58&animation=fadeIn"
+  width="100%"
+/>
 
-  push:
-    branches:
-      - main
+<br>
 
-permissions:
-  contents: write
+<a href="https://github.com/andrewsemtetteh">
+  <img src="https://img.shields.io/badge/GITHUB-111111?style=for-the-badge&logo=github&logoColor=white"/>
+</a>
+&nbsp;
+<a href="#">
+  <img src="https://img.shields.io/badge/PORTFOLIO-111111?style=for-the-badge&logo=googlechrome&logoColor=white"/>
+</a>
+&nbsp;
+<a href="mailto:your@email.com">
+  <img src="https://img.shields.io/badge/CONTACT-111111?style=for-the-badge&logo=gmail&logoColor=white"/>
+</a>
 
-jobs:
-  update-profile:
-    runs-on: ubuntu-latest
+</div>
 
-    steps:
+<br>
 
-      - name: Checkout profile
-        uses: actions/checkout@v4
+---
 
-      - name: Generate dynamic project section
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
+<div align="center">
 
-          python <<'PY'
+### `WELCOME TO MY DIGITAL STUDIO`
 
-          import os
-          import urllib.request
-          import json
-          import html
+<br>
 
-          username = "andrewsemtetteh"
+<img
+src="https://readme-typing-svg.demolab.com?font=Space+Mono&size=18&duration=3000&pause=1000&color=888888&center=true&vCenter=true&width=700&lines=I+build+things.;I+design+things.;I+experiment+with+AI.;I+turn+ideas+into+products.;Sometimes+I+break+them+first."
+/>
 
-          url = (
-              f"https://api.github.com/users/{username}/repos"
-              "?per_page=100&sort=updated"
-          )
+</div>
 
-          request = urllib.request.Request(
-              url,
-              headers={
-                  "Accept": "application/vnd.github+json",
-                  "User-Agent": username
-              }
-          )
+<br>
 
-          with urllib.request.urlopen(request) as response:
-              repos = json.loads(response.read())
+---
 
-          # Remove forks and archived repositories
-          repos = [
-              repo for repo in repos
-              if not repo.get("fork", False)
-              and not repo.get("archived", False)
-          ]
+# `01 — THE PERSON`
 
-          # Sort by stars first, then recent activity
-          repos.sort(
-              key=lambda repo: (
-                  repo.get("stargazers_count", 0),
-                  repo.get("pushed_at", "")
-              ),
-              reverse=True
-          )
+<table>
+<tr>
+<td width="55%" valign="top">
 
-          # Display up to 6 projects
-          repos = repos[:6]
+## Andrew.
 
-          cards = []
+I'm a **builder, creative technologist and
+product-minded developer** interested in the
+space between technology and creativity.
 
-          for repo in repos:
+I like taking an idea from:
 
-              name = html.escape(repo["name"])
+**`"what if..."`**
 
-              description = repo.get("description") or \
-                  "An experiment from my digital studio."
+↓
 
-              description = html.escape(description)
+**prototype**
 
-              language = repo.get("language") or "CODE"
+↓
 
-              stars = repo.get("stargazers_count", 0)
+**product**
 
-              url = repo["html_url"]
+↓
 
-              card = f"""
-          <a href="{url}">
-            <img
-              src="https://github-readme-stats.vercel.app/api/pin/?username={username}&repo={repo['name']}&theme=transparent&hide_border=true"
-              width="48%"
-            />
-          </a>
-          """
+**something people can actually use.**
 
-              cards.append(card)
+My work moves across software, AI, design,
+creative technology and digital products.
 
-          project_html = """
+</td>
 
-          <div align="center">
+<td width="45%" valign="top">
 
-          """ + "\n".join(cards) + """
-
-          </div>
-
-          """
-
-          with open("README.md", "r", encoding="utf-8") as file:
-              readme = file.read()
-
-          start_marker = "<!-- PROJECTS:START -->"
-          end_marker = "<!-- PROJECTS:END -->"
-
-          start = readme.index(start_marker)
-          end = readme.index(end_marker)
-
-          new_readme = (
-              readme[:start]
-              + start_marker
-              + "\n"
-              + project_html
-              + "\n"
-              + readme[end:]
-          )
-
-          with open("README.md", "w", encoding="utf-8") as file:
-              file.write(new_readme)
-
-          PY
-
-      - name: Commit updated profile
-        run: |
-
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          git add README.md
-
-          git diff --cached --quiet || \
-            git commit -m "chore: update dynamic profile"
-
-          git push
+```text
+┌────────────────────────────┐
+│                            │
+│       CURRENT STATE        │
+│                            │
+│  BUILDING       ███████░░  │
+│  LEARNING       ████████░  │
+│  EXPERIMENTING  █████████  │
+│  SLEEPING       ███░░░░░░  │
+│                            │
+└────────────────────────────┘
